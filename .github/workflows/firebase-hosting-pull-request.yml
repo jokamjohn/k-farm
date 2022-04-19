@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: install requirements
         run: |
+          ls -la
           npm install
           npm run build
       - uses: actions/checkout@v2
