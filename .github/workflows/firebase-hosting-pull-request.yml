@@ -19,4 +19,4 @@ jobs:
           projectId: essa-farm
       - name: install requirements
         run: |
-        npm install
+          npm install
