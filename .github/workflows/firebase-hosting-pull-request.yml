@@ -7,11 +7,18 @@ jobs:
   build_and_preview:
     if: '${{ github.event.pull_request.head.repo.full_name == github.repository }}'
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./
     steps:
       - uses: actions/checkout@v2
-      - run: npm ci && npm run build
+      - name: install requirements
+        run: |
+          npm cache clean --force
+          npm install
+          npm run build
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
           repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_KAGGA_FARM }}'
-          projectId: kagga-farm
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_ESSA_FARM }}'
+          projectId: essa-farm
