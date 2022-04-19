@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: install requirements
         run: |
-          ls -la
+          npm install
       - uses: actions/checkout@v2
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
